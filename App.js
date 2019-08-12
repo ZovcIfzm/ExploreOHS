@@ -1,72 +1,141 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
+var arr = [
+  {image:require('./TNS/blf.png')},
+  {image:require('./TNS/blr.png')},
 
-/*Dependencies
-react-navigation
-react-native-swipe-gestures
-react-native-gesture-handler
+  {image:require('./TNS/flr.png')},
+  {image:require('./TNS/flb.png')},
 
-*/
+  {image:require('./TNS/frb.png')},
+  {image:require('./TNS/frl.png')},
 
+  {image:require('./TNS/brl.png')},
+  {image:require('./TNS/brf.png')}]
 
-class HomeScreen extends React.Component {
-  render() {
+//import 'Map.js';
+function Map(id, dir){
+  var ret = [0, 0, 0];
+  var retID = -1;
+  if(dir == "for")
+    retID = 0;
+  else if (dir == "right")
+    retID = 1;
+  else if (dir == "left")
+    retID = 2;
+
+  const AFor = 0;
+  const ARight = 1;
+
+  const BRight = 2;
+  const BBack = 3;
+
+  const CBack = 4;
+  const CLeft = 5;
+
+  const DLeft = 6;
+  const DFor = 7;
+
+  if (id == AFor) ret = [BRight, ARight, id];
+  if (id == ARight) ret = [DFor, id, AFor];
+  if (id == BRight) ret = [CBack, BBack, id];
+  if (id == BBack) ret = [ARight, id, BRight];
+  if (id == CBack) ret = [DLeft, CLeft, id];
+  if (id == CLeft) ret = [BBack, id, CBack];
+  if (id == DLeft) ret = [AFor, DFor, id];
+  if (id == DFor) ret = [CLeft, id, DLeft]
+
+  return ret[retID];
+}
+
+class HomeScreen extends React.Component{
+  render(){
     const config = {
       velocityThreshold: 0.3,
       directionalOffsetThreshold: 80
-    };
+  };
     return (
-          <GestureRecognizer 
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-            onSwipeUp={this._onSwipeUp}
-          >
-            <Text>Home Screen</Text>
-            <Button
-              title="Go to Details"
-              onPress={() => {
-                this.props.navigation.dispatch(StackActions.reset({
-                  index: 0,
-                  actions: [
-                    NavigationActions.navigate({ routeName: 'Details' })
-                  ],
-                }))
-              }}
-            />
-          </GestureRecognizer>
-      /*
-      */
+      <GestureRecognizer 
+        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        onSwipeUp={this._onSwipeUp}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => {
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: 'Home' })
+              ],
+            }))
+          }}
+        />
+      </GestureRecognizer>
     );
-  }s
+  }
   _onSwipeUp = gestureState =>{
     this.props.navigation.dispatch(StackActions.reset({
       index: 0,
       actions: [
-        NavigationActions.navigate({ routeName: 'Details' })
+        NavigationActions.navigate({ routeName: 'Exploration' })
       ],
     }))
   }  
 }
 
-
-class DetailsScreen extends React.Component {
-  render() {
+class Exploration extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      id: 0,
+    }
+  }
+  render(){
+    const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80
+    };
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
+      <GestureRecognizer 
+        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        onSwipeDown={this._onSwipeDown}
+        onSwipeRight={this._onSwipeRight}
+        onSwipeLeft={this._onSwipeLeft}
+        onSwipeUp={this._onSwipeUp}>
+        <Image source = {arr[this.state.id].image} style={{width: '100%', height: '100%'}}/>
+      </GestureRecognizer>
     );
+  }
+  _onSwipeDown = gestureState =>{
+    this.props.navigation.dispatch(StackActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' })
+      ],
+    }))
+  }
+  _onSwipeLeft = gestureState =>{
+    this.setState({id: Map(this.state.id, "right")})
+  } 
+  _onSwipeRight = gestureState =>{
+    this.setState({id: Map(this.state.id, "left")})
+  }
+  _onSwipeUp = gestureState =>{
+    this.setState({id: Map(this.state.id, "for")})
+    console.log("testing:" + this.state.id);
   }  
 }
+
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
   },
-  Details: {
-    screen: DetailsScreen,
+  Exploration: {
+    screen: Exploration,
   },
 }, {
     initialRouteName: 'Home',
@@ -74,7 +143,8 @@ const AppNavigator = createStackNavigator({
 
 export default createAppContainer(AppNavigator);
 
-/*Example code
+
+/*
 export default class FlexDimensionsBasics extends Component {
   render() {
     return (
@@ -178,26 +248,3 @@ export default class BlinkApp extends Component {
   }
 }
 */
-
-/*
-Base app
-
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});*/
