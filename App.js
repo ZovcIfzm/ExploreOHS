@@ -2,54 +2,9 @@ import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
-var arr = [
-  {image:require('./TNS/blf.png')},
-  {image:require('./TNS/blr.png')},
-
-  {image:require('./TNS/flr.png')},
-  {image:require('./TNS/flb.png')},
-
-  {image:require('./TNS/frb.png')},
-  {image:require('./TNS/frl.png')},
-
-  {image:require('./TNS/brl.png')},
-  {image:require('./TNS/brf.png')}]
-
-//import 'Map.js';
-function Map(id, dir){
-  var ret = [0, 0, 0];
-  var retID = -1;
-  if(dir == "for")
-    retID = 0;
-  else if (dir == "right")
-    retID = 1;
-  else if (dir == "left")
-    retID = 2;
-
-  const AFor = 0;
-  const ARight = 1;
-
-  const BRight = 2;
-  const BBack = 3;
-
-  const CBack = 4;
-  const CLeft = 5;
-
-  const DLeft = 6;
-  const DFor = 7;
-
-  if (id == AFor) ret = [BRight, ARight, id];
-  if (id == ARight) ret = [DFor, id, AFor];
-  if (id == BRight) ret = [CBack, BBack, id];
-  if (id == BBack) ret = [ARight, id, BRight];
-  if (id == CBack) ret = [DLeft, CLeft, id];
-  if (id == CLeft) ret = [BBack, id, CBack];
-  if (id == DLeft) ret = [AFor, DFor, id];
-  if (id == DFor) ret = [CLeft, id, DLeft]
-
-  return ret[retID];
-}
+import * as K from './Constants.js';
+import * as pics from './Pictures.js';
+import * as Map from './Map.js';
 
 class HomeScreen extends React.Component{
   render(){
@@ -90,6 +45,7 @@ class Exploration extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      section: "none",
       id: 0,
     }
   }
@@ -105,7 +61,15 @@ class Exploration extends React.Component{
         onSwipeRight={this._onSwipeRight}
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}>
-        <Image source = {arr[this.state.id].image} style={{width: '100%', height: '100%'}}/>
+        {this.state.section == "none"?
+          <Image source = {pics.arr[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
+        }
+        {this.state.section == "outsideMainEntrance"?
+          <Image source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
+        }
+        {this.state.section == "front"?
+          <Image source = {pics.front[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
+        }
       </GestureRecognizer>
     );
   }
@@ -118,14 +82,16 @@ class Exploration extends React.Component{
     }))
   }
   _onSwipeLeft = gestureState =>{
-    this.setState({id: Map(this.state.id, "right")})
+    var response = Map.Map(this.state.section, this.state.id, "right");//-- change to a single declaration of var response
+    this.setState({section: response[0], id: response[1]})
   } 
   _onSwipeRight = gestureState =>{
-    this.setState({id: Map(this.state.id, "left")})
+    var response = Map.Map(this.state.section, this.state.id, "left");
+    this.setState({section: response[0], id: response[1]})
   }
   _onSwipeUp = gestureState =>{
-    this.setState({id: Map(this.state.id, "for")})
-    console.log("testing:" + this.state.id);
+    var response = Map.Map(this.state.section, this.state.id, "for");
+    this.setState({section: response[0], id: response[1]})
   }  
 }
 
