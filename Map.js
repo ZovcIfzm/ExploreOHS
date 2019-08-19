@@ -1,36 +1,54 @@
 //Map .js
+import * as pics from './Pictures.js';
+import * as k from './Constants.js'
 
-export function Map(section, id, dir){
-  var ret = [[0,0], [0,0], [0,0]];
-  var retID = -1;
-  if(dir == "for")
-    retID = 0;
-  else if (dir == "right")
-    retID = 1;
-  else if (dir == "left")
-    retID = 2;
-
-  const AFor = ["none",0];
-  const ARight = ["none",1];
-
-  const BRight = ["none",2];
-  const BBack = ["none",3];
-
-  const CBack = ["none",4];
-  const CLeft = ["none",5];
-
-  const DLeft = ["none",6];
-  const DFor = ["none",7];
+export function map(section, id){
+  var ret = [0,0];
 
   if (section == "none"){
-    if (id == AFor[1]) ret = [BRight, ARight, id];
-    if (id == ARight[1]) ret = [DFor, id, AFor];
-    if (id == BRight[1]) ret = [CBack, BBack, id];
-    if (id == BBack[1]) ret = [ARight, id, BRight];
-    if (id == CBack[1]) ret = [DLeft, CLeft, id];
-    if (id == CLeft[1]) ret = [BBack, id, CBack];
-    if (id == DLeft[1]) ret = [AFor, DFor, id];
-    if (id == DFor[1]) ret = [CLeft, id, DLeft];
+    if (id == k.AFor[1]) ret = k.BRight;
+    if (id == k.ARight[1]) ret = k.DFor;
+    if (id == k.BRight[1]) ret = k.CBack;
+    if (id == k.BBack[1]) ret = k.ARight;
+    if (id == k.CBack[1]) ret = k.DLeft;
+    if (id == k.CLeft[1]) ret = k.BBack;
+    if (id == k.DLeft[1]) ret = k.AFor;
+    if (id == k.DFor[1]) ret = k.CLeft;
   }
-  return ret[retID];
+  return ret;
+}
+
+export function rotation(section, id, direction){
+  const sectionLength = findSectionLength(section);
+  if (direction == "clock"){
+    if (id + 1 < sectionLength){
+      return id + 1;
+    }
+    else{
+      return 0;
+    }
+  }
+  else if (direction == "counter"){
+    if (id - 1 < 0){
+      return sectionLength - 1;
+    }
+    else{
+      return id - 1;
+    }
+  }
+  else{
+    console.log("rotation function error");
+  }
+}
+
+export function findSectionLength(sectionName){
+  if (sectionName == "none"){
+    return pics.noneLength;
+  }
+  if (sectionName == "outsideMainEntrance"){
+    return pics.outsideMainEntranceLength;
+  }
+  if (sectionName == "front"){
+    return pics.frontLength;
+  }
 }

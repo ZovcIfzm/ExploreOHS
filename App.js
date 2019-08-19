@@ -62,7 +62,7 @@ class Exploration extends React.Component{
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}>
         {this.state.section == "none"?
-          <Image source = {pics.arr[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
+          <Image source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
         }
         {this.state.section == "outsideMainEntrance"?
           <Image source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
@@ -82,15 +82,13 @@ class Exploration extends React.Component{
     }))
   }
   _onSwipeLeft = gestureState =>{
-    var response = Map.Map(this.state.section, this.state.id, "right");//-- change to a single declaration of var response
-    this.setState({section: response[0], id: response[1]})
+    this.setState({id: Map.rotation(this.state.section, this.state.id, "clock")})
   } 
   _onSwipeRight = gestureState =>{
-    var response = Map.Map(this.state.section, this.state.id, "left");
-    this.setState({section: response[0], id: response[1]})
+    this.setState({id: Map.rotation(this.state.section, this.state.id, "counter")})
   }
   _onSwipeUp = gestureState =>{
-    var response = Map.Map(this.state.section, this.state.id, "for");
+    var response = Map.map(this.state.section, this.state.id);
     this.setState({section: response[0], id: response[1]})
   }  
 }

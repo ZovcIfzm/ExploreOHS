@@ -1,5 +1,5 @@
 //Pictures.js
-export var arr = [
+export var none = [
   {image:require('./TNS/blf.png')},
   {image:require('./TNS/blr.png')},
 
@@ -18,3 +18,7 @@ export var outsideMainEntrance = [
 export var front = [
   {image:require('./TNS/blf.png')}
 ]; //--not implemeted yet
+
+export const noneLength = none.length;
+export const outsideMainEntranceLength = outsideMainEntrance.length;
+export const frontLength = front.length;
