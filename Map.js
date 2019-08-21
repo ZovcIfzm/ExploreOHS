@@ -18,19 +18,27 @@ export function map(section, id){
   if (section == "outsideMainEntrance"){
     if (id == k.outsideMainEntranceWest[1]) ret = k.frontDoorsWest;
   }
-  if (section == "frontDoors"){
+  else if (section == "frontDoors"){
     if (id == k.frontDoorsEast[1]) ret = k.outsideMainEntranceEast;
     if (id == k.frontDoorsSouth[1]) ret = k.frontJunctionASouth;
   }
-  if (section == "frontJunctionA"){
+  else if (section == "frontJunctionA"){
     if (id == k.frontJunctionANorth[1]) ret = k.frontDoorsNorth;
     if (id == k.frontJunctionAEast[1]) ret = k.artsJunctionAEast;
+    if (id == k.frontJunctionAWest[1]) ret = k.centerWest;
   }
-  if (section == "artsJunctionA"){
+  else if (section == "center"){
+    if (id == k.centerEast[1]) ret = k.frontJunctionAEast;
+    if (id == k.centerNorth[1]) ret = k.cafeteriaNorth;
+  }
+  else if (section == "cafeteria"){
+    if (id == k.cafeteriaSouth[1]) ret = k.centerSouth;
+  }
+  else if (section == "artsJunctionA"){
     if (id == k.artsJunctionAWest[1]) ret = k.frontJunctionAWest;
     if (id == k.artsJunctionASouth[1]) ret = k.artsJunctionBSouth;
   }
-  if (section == "artsJunctionB"){
+  else if (section == "artsJunctionB"){
     if (id == k.artsJunctionBNorth[1]) ret = k.artsJunctionAWest; //need to fix- take a picture
     //also need to take picture of artsJunctionBWest
   }
@@ -62,10 +70,12 @@ export function rotation(section, id, direction){
 
 export function findSectionLength(sectionName){
   if (sectionName == "none") return pics.noneLength;
-  if (sectionName == "outsideMainEntrance") return pics.outsideMainEntranceLength;
-  if (sectionName == "frontDoors") return pics.frontDoorsLength;
-  if (sectionName == "frontJunctionA") return pics.frontJunctionALength;
-  if (sectionName == "artsJunctionA") return pics.artsJunctionALength;
-  if (sectionName == "artsJunctionB") return pics.artsJunctionBLength;
+  else if (sectionName == "outsideMainEntrance") return pics.outsideMainEntranceLength;
+  else if (sectionName == "frontDoors") return pics.frontDoorsLength;
+  else if (sectionName == "frontJunctionA") return pics.frontJunctionALength;
+  else if (sectionName == "artsJunctionA") return pics.artsJunctionALength;
+  else if (sectionName == "artsJunctionB") return pics.artsJunctionBLength;
+  else if (sectionName == "center") return pics.centerLength;
+  else if (sectionName == "cafeteria") return pics.cafeteriaLength;
   else console.log("finding section length error")
 }

@@ -35,3 +35,17 @@ export const artsJunctionASouth = ["artsJunctionA",2];
 export const artsJunctionBNorth = ["artsJunctionB",0];
 export const artsJunctionBEast = ["artsJunctionB",1];
 export const artsJunctionBSouth = ["artsJunctionB",2];
+
+export const centerWest = ["center", 0];
+export const centerNorth = ["center", 1];
+export const centerEast = ["center", 2];
+export const centerSoutheast = ["center", 3];
+export const centerSouth = ["center", 4];
+export const centerSouthwest = ["center", 5];
+
+export const cafeteriaWest = ["cafeteria", 0];
+export const cafeteriaNorthwest = ["cafeteria", 1];
+export const cafeteriaNorth = ["cafeteria", 2];
+export const cafeteriaNortheast = ["cafeteria", 3];
+export const cafeteriaEast = ["cafeteria", 4];
+export const cafeteriaSouth = ["cafeteria", 5];

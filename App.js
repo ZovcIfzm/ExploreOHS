@@ -67,6 +67,8 @@ class Exploration extends React.Component{
         {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
       </GestureRecognizer>
     );
   }
