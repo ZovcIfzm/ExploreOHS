@@ -45,7 +45,7 @@ class Exploration extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      section: "none",
+      section: "outsideMainEntrance",
       id: 0,
     }
   }
@@ -61,15 +61,12 @@ class Exploration extends React.Component{
         onSwipeRight={this._onSwipeRight}
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}>
-        {this.state.section == "none"?
-          <Image source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
-        }
-        {this.state.section == "outsideMainEntrance"?
-          <Image source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
-        }
-        {this.state.section == "front"?
-          <Image source = {pics.front[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null
-        }
+        {this.state.section == "none" ? <Image source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "outsideMainEntrance" ? <Image source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
       </GestureRecognizer>
     );
   }
