@@ -69,6 +69,13 @@ class Exploration extends React.Component{
         {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        
+        {this.state.section == "lowerAB" ? <Image source = {pics.lowerAB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "midHall" ? <Image source = {pics.midHall[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDCenter" ? <Image source = {pics.lowerCDCenter[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDJunctionA" ? <Image source = {pics.lowerCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDJunctionB" ? <Image source = {pics.lowerCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "CDStairs" ? <Image source = {pics.CDStairs[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
       </GestureRecognizer>
     );
   }

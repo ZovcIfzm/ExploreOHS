@@ -49,3 +49,35 @@ export const cafeteriaNorth = ["cafeteria", 2];
 export const cafeteriaNortheast = ["cafeteria", 3];
 export const cafeteriaEast = ["cafeteria", 4];
 export const cafeteriaSouth = ["cafeteria", 5];
+
+export const lowerABWest = ["lowerAB", 0];
+export const lowerABNorth = ["lowerAB", 1];
+export const lowerABEast = ["lowerAB", 2];
+export const lowerABSouth = ["lowerAB", 3];
+export const lowerABSouthwest = ["lowerAB", 4];
+
+export const midHallNorth = ["midHall", 0];
+export const midHallNortheast = ["midHall", 1];
+export const midHallSoutheast = ["midHall", 2];
+export const midHallSouth = ["midHall", 3];
+
+export const lowerCDNorth = ["lowerCDCenter", 0];
+export const lowerCDSoutheast = ["lowerCDCenter", 1];
+export const lowerCDStairsUp = ["lowerCDCenter", 2];
+
+export const lowerCDCenterNorth = ["lowerCDCenter", 0];
+export const lowerCDCenterSoutheast = ["lowerCDCenter", 1];
+export const lowerCDCenterStairsUp = ["lowerCDCenter", 2];
+
+export const lowerCDJunctionAWest = ["lowerCDJunctionA", 0];
+export const lowerCDJunctionANorthwest = ["lowerCDJunctionA", 1];
+export const lowerCDJunctionANorth = ["lowerCDJunctionA", 2];
+export const lowerCDJunctionASouth = ["lowerCDJunctionA", 3];
+
+export const lowerCDJunctionBWest = ["lowerCDJunctionB", 0];
+export const lowerCDJunctionBNorth = ["lowerCDJunctionB", 1];
+export const lowerCDJunctionBSoutheast = ["lowerCDJunctionB", 2];
+
+export const CDStairsCenterUp = ["CDStairs", 0];
+export const CDStairsCenterForward = ["CDStairs", 1];
+export const CDStairsCenterDown = ["CDStairs", 2];
