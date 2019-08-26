@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, ImageBackground } from 'react-native';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import * as K from './Constants.js';
@@ -16,14 +16,16 @@ class HomeScreen extends React.Component{
       <GestureRecognizer 
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
         onSwipeUp={this._onSwipeUp}>
-        <Text>Home Screen</Text>
+        <Text style={{position:"absolute", bottom: '60%', fontSize: 20, fontFamily: "Courier New"}}>Discover OHS</Text>
+        <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
+        <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
         <Button
-          title="Go to Details"
+          title="Begin"
           onPress={() => {
             this.props.navigation.dispatch(StackActions.reset({
               index: 0,
               actions: [
-                NavigationActions.navigate({ routeName: 'Home' })
+                NavigationActions.navigate({ routeName: 'Exploration' })
               ],
             }))
           }}
@@ -61,21 +63,26 @@ class Exploration extends React.Component{
         onSwipeRight={this._onSwipeRight}
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}>
-        {this.state.section == "none" ? <Image source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "outsideMainEntrance" ? <Image source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         
-        {this.state.section == "lowerAB" ? <Image source = {pics.lowerAB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "midHall" ? <Image source = {pics.midHall[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDCenter" ? <Image source = {pics.lowerCDCenter[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDJunctionA" ? <Image source = {pics.lowerCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDJunctionB" ? <Image source = {pics.lowerCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "CDStairs" ? <Image source = {pics.CDStairs[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "none" ? <ImageBackground source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "outsideMainEntrance" ? <ImageBackground source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "frontDoors" ? <ImageBackground source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "frontJunctionA" ? <ImageBackground source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "artsJunctionA" ? <ImageBackground source = {pics.artsJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "artsJunctionB" ? <ImageBackground source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "center" ? <ImageBackground source = {pics.center[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "cafeteria" ? <ImageBackground source = {pics.cafeteria[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        
+        {this.state.section == "lowerAB" ? <ImageBackground source = {pics.lowerAB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "midHall" ? <ImageBackground source = {pics.midHall[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDCenter" ? <ImageBackground source = {pics.lowerCDCenter[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDJunctionA" ? <ImageBackground source = {pics.lowerCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerCDJunctionB" ? <ImageBackground source = {pics.lowerCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "CDStairs" ? <ImageBackground source = {pics.CDStairs[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        
+        <Text style={{position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
+        <Text style={{position: 'absolute', bottom: '5%', fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
+        
       </GestureRecognizer>
     );
   }
