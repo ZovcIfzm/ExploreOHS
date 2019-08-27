@@ -64,7 +64,6 @@ class Exploration extends React.Component{
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}>
         
-        {this.state.section == "none" ? <ImageBackground source = {pics.none[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "outsideMainEntrance" ? <ImageBackground source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "frontDoors" ? <ImageBackground source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "frontJunctionA" ? <ImageBackground source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
@@ -108,7 +107,6 @@ class Exploration extends React.Component{
     this.setState({section: response[0], id: response[1]})
   }  
 }
-
 
 const AppNavigator = createStackNavigator({
   Home: {

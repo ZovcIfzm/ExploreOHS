@@ -1,13 +1,4 @@
 //Pictures.js
-export var none = [
-  {image:require('./TNS/blf.png')},
-  {image:require('./TNS/blr.png')},
-  {image:require('./TNS/flr.png')},
-  {image:require('./TNS/flb.png')},
-  {image:require('./TNS/frb.png')},
-  {image:require('./TNS/frl.png')},
-  {image:require('./TNS/brl.png')},
-  {image:require('./TNS/brf.png')}]
 export var outsideMainEntrance = [
   {image:require('./pics/outside/mainEntrance/entranceWest.png')},
   {image:require('./pics/outside/mainEntrance/entranceNorth.png')},
@@ -78,21 +69,17 @@ export var upperCDEntrance = [
   {image:require('./pics/halls/upperCD/entrance/upperCDEntranceWest.png')},
   {image:require('./pics/halls/upperCD/entrance/upperCDEntranceNorth.png')},
   {image:require('./pics/halls/upperCD/entrance/upperCDEntranceEast.png')},
-  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceSouth.png')},
-]
+  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceSouth.png')}]
 export var upperCDJunctionA = [
   {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionAWest.png')},
   {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionANorth.png')},
   {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionAEast.png')},
-  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionASouth.png')},
-]
+  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionASouth.png')}]
 export var upperCDJunctionB = [
   {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBWest.png')},
   {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBNorth.png')},
-  {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBSouth.png')},
-]
+  {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBSouth.png')}]
 
-export const noneLength = none.length;
 export const outsideMainEntranceLength = outsideMainEntrance.length;
 export const frontDoorsLength = frontDoors.length;
 export const frontJunctionALength = frontJunctionA.length;

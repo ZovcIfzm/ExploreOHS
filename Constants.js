@@ -1,18 +1,4 @@
 //Constants.js
-
-
-export const AFor = ["none",0];
-export const ARight = ["none",1];
-
-export const BRight = ["none",2];
-export const BBack = ["none",3];
-
-export const CBack = ["none",4];
-export const CLeft = ["none",5];
-
-export const DLeft = ["none",6];
-export const DFor = ["none",7];
-
 export const outsideMainEntranceWest = ["outsideMainEntrance",0];
 export const outsideMainEntranceNorth = ["outsideMainEntrance",1];
 export const outsideMainEntranceEast = ["outsideMainEntrance",2];
