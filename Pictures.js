@@ -46,34 +46,51 @@ export var cafeteria = [
   {image:require('./pics/cafeteria/cafeteriaEast.png')},
   {image:require('./pics/cafeteria/cafeteriaSouth.png')}]
 export var lowerAB = [
-  {image:require('./pics/mid/lowerAB/lowerABWest.png')},
-  {image:require('./pics/mid/lowerAB/lowerABNorth.png')},
-  {image:require('./pics/mid/lowerAB/lowerABEast.png')},
-  {image:require('./pics/mid/lowerAB/lowerABSouth.png')},
-  {image:require('./pics/mid/lowerAB/lowerABSouthwest.png')}]
+  {image:require('./pics/halls/lowerAB/lowerABWest.png')},
+  {image:require('./pics/halls/lowerAB/lowerABNorth.png')},
+  {image:require('./pics/halls/lowerAB/lowerABEast.png')},
+  {image:require('./pics/halls/lowerAB/lowerABSouth.png')},
+  {image:require('./pics/halls/lowerAB/lowerABSouthwest.png')}]
 export var midHall = [
   {image:require('./pics/mid/midHall/midHallNorth.png')},
   {image:require('./pics/mid/midHall/midHallNortheast.png')},
   {image:require('./pics/mid/midHall/midHallSoutheast.png')},
   {image:require('./pics/mid/midHall/midHallSouth.png')}]
 export var lowerCDCenter = [
-  {image:require('./pics/mid/lowerCD/center/lowerCDNorth.png')},
-  {image:require('./pics/mid/lowerCD/center/lowerCDEast.png')},
-  {image:require('./pics/mid/lowerCD/center/lowerCDSoutheast.png')},
-  {image:require('./pics/mid/lowerCD/center/lowerCDStairsUp.png')}]
+  {image:require('./pics/halls/lowerCD/center/lowerCDNorth.png')},
+  {image:require('./pics/halls/lowerCD/center/lowerCDEast.png')},
+  {image:require('./pics/halls/lowerCD/center/lowerCDSoutheast.png')},
+  {image:require('./pics/halls/lowerCD/center/lowerCDStairsUp.png')}]
 export var lowerCDJunctionA = [
-  {image:require('./pics/mid/lowerCD/junctionA/lowerCDJunctionAWest.png')},
-  {image:require('./pics/mid/lowerCD/junctionA/lowerCDJunctionANorthwest.png')},
-  {image:require('./pics/mid/lowerCD/junctionA/lowerCDJunctionANorth.png')},
-  {image:require('./pics/mid/lowerCD/junctionA/lowerCDJunctionASouth.png')}]
+  {image:require('./pics/halls/lowerCD/junctionA/lowerCDJunctionAWest.png')},
+  {image:require('./pics/halls/lowerCD/junctionA/lowerCDJunctionANorthwest.png')},
+  {image:require('./pics/halls/lowerCD/junctionA/lowerCDJunctionANorth.png')},
+  {image:require('./pics/halls/lowerCD/junctionA/lowerCDJunctionASouth.png')}]
 export var lowerCDJunctionB = [
-  {image:require('./pics/mid/lowerCD/junctionB/lowerCDJunctionBWest.png')},
-  {image:require('./pics/mid/lowerCD/junctionB/lowerCDJunctionBNorth.png')},
-  {image:require('./pics/mid/lowerCD/junctionB/lowerCDJunctionBSoutheast.png')}]
+  {image:require('./pics/halls/lowerCD/junctionB/lowerCDJunctionBWest.png')},
+  {image:require('./pics/halls/lowerCD/junctionB/lowerCDJunctionBNorth.png')},
+  {image:require('./pics/halls/lowerCD/junctionB/lowerCDJunctionBSoutheast.png')}]
 export var CDStairs = [
-  {image:require('./pics/mid/lowerCD/CDStairs/CDStairsCenterUp.png')},
-  {image:require('./pics/mid/lowerCD/CDStairs/CDStairsCenterForward.png')},
-  {image:require('./pics/mid/lowerCD/CDStairs/CDStairsCenterDown.png')}]
+  {image:require('./pics/halls/lowerCD/CDStairs/CDStairsCenterUp.png')},
+  {image:require('./pics/halls/lowerCD/CDStairs/CDStairsCenterForward.png')},
+  {image:require('./pics/halls/lowerCD/CDStairs/CDStairsCenterDown.png')}]
+export var upperCDEntrance = [
+  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceWest.png')},
+  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceNorth.png')},
+  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceEast.png')},
+  {image:require('./pics/halls/upperCD/entrance/upperCDEntranceSouth.png')},
+]
+export var upperCDJunctionA = [
+  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionAWest.png')},
+  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionANorth.png')},
+  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionAEast.png')},
+  {image:require('./pics/halls/upperCD/junctionA/upperCDJunctionASouth.png')},
+]
+export var upperCDJunctionB = [
+  {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBWest.png')},
+  {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBNorth.png')},
+  {image:require('./pics/halls/upperCD/junctionB/upperCDJunctionBSouth.png')},
+]
 
 export const noneLength = none.length;
 export const outsideMainEntranceLength = outsideMainEntrance.length;
@@ -89,3 +106,6 @@ export const lowerCDCenterLength = lowerCDCenter.length;
 export const lowerCDJunctionALength = lowerCDJunctionA.length;
 export const lowerCDJunctionBLength = lowerCDJunctionB.length;
 export const CDStairsLength = CDStairs.length;
+export const upperCDEntranceLength = upperCDEntrance.length;
+export const upperCDJunctionALength = upperCDJunctionA.length;
+export const upperCDJunctionBLength = upperCDJunctionB.length;

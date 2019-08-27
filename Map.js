@@ -65,6 +65,18 @@ export function map(section, id){
   }
   else if (section == "CDStairs"){
     if (id == k.CDStairsCenterDown[1]) ret = k.lowerCDCenterSoutheast;
+    if (id == k.CDStairsCenterUp[1]) ret = k.upperCDEntranceSouth;
+  }
+  else if (section == "upperCDEntrance"){
+    if (id == k.upperCDEntranceNorth[1]) ret = k.CDStairsCenterForward;
+    if (id == k.upperCDEntranceEast[1]) ret = k.upperCDJunctionAEast;
+  }
+  else if (section == "upperCDJunctionA"){
+    if (id == k.upperCDJunctionAWest[1]) ret = k.upperCDEntranceWest;
+    if (id == k.upperCDJunctionANorth[1]) ret = k.upperCDJunctionBNorth;
+  }
+  else if (section == "upperCDJunctionB"){
+    if (id == k.upperCDJunctionBSouth[1]) ret = k.upperCDJunctionASouth;
   }
   return ret;
 }
@@ -106,6 +118,9 @@ export function findSectionLength(sectionName){
   else if (sectionName == "lowerCDCenter") return pics.lowerCDCenterLength;
   else if (sectionName == "lowerCDJunctionA") return pics.lowerCDJunctionALength;
   else if (sectionName == "lowerCDJunctionB") return pics.lowerCDJunctionBLength;
-  else if (sectionName == "lowerCDStairs") return pics.CDStairsLength;
+  else if (sectionName == "CDStairs") return pics.CDStairsLength;
+  else if (sectionName == "upperCDEntrance") return pics.upperCDEntranceLength;
+  else if (sectionName == "upperCDJunctionA") return pics.upperCDJunctionALength;
+  else if (sectionName == "upperCDJunctionB") return pics.upperCDJunctionBLength;
   else console.log("finding section length error")
 }

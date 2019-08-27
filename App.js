@@ -79,7 +79,10 @@ class Exploration extends React.Component{
         {this.state.section == "lowerCDJunctionA" ? <ImageBackground source = {pics.lowerCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "lowerCDJunctionB" ? <ImageBackground source = {pics.lowerCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "CDStairs" ? <ImageBackground source = {pics.CDStairs[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        
+        {this.state.section == "upperCDEntrance" ? <ImageBackground source = {pics.upperCDEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "upperCDJunctionA" ? <ImageBackground source = {pics.upperCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+
         <Text style={{position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
         <Text style={{position: 'absolute', bottom: '5%', fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
         

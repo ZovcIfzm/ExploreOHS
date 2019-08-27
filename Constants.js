@@ -66,8 +66,9 @@ export const lowerCDSoutheast = ["lowerCDCenter", 1];
 export const lowerCDStairsUp = ["lowerCDCenter", 2];
 
 export const lowerCDCenterNorth = ["lowerCDCenter", 0];
-export const lowerCDCenterSoutheast = ["lowerCDCenter", 1];
-export const lowerCDCenterStairsUp = ["lowerCDCenter", 2];
+export const lowerCDCenterEast = ["lowerCDCenter", 1];
+export const lowerCDCenterSoutheast = ["lowerCDCenter", 2];
+export const lowerCDCenterStairsUp = ["lowerCDCenter", 3];
 
 export const lowerCDJunctionAWest = ["lowerCDJunctionA", 0];
 export const lowerCDJunctionANorthwest = ["lowerCDJunctionA", 1];
@@ -81,3 +82,17 @@ export const lowerCDJunctionBSoutheast = ["lowerCDJunctionB", 2];
 export const CDStairsCenterUp = ["CDStairs", 0];
 export const CDStairsCenterForward = ["CDStairs", 1];
 export const CDStairsCenterDown = ["CDStairs", 2];
+
+export const upperCDEntranceWest = ["upperCDEntrance", 0];
+export const upperCDEntranceNorth = ["upperCDEntrance", 1];
+export const upperCDEntranceEast = ["upperCDEntrance", 2];
+export const upperCDEntranceSouth = ["upperCDEntrance", 3];
+
+export const upperCDJunctionAWest = ["upperCDJunctionA", 0];
+export const upperCDJunctionANorth = ["upperCDJunctionA", 1];
+export const upperCDJunctionAEast = ["upperCDJunctionA", 2];
+export const upperCDJunctionASouth = ["upperCDJunctionA", 3];
+
+export const upperCDJunctionBWest = ["upperCDJunctionB", 0];
+export const upperCDJunctionBNorth = ["upperCDJunctionB", 1];
+export const upperCDJunctionBSouth = ["upperCDJunctionB", 2];
