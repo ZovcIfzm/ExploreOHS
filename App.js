@@ -6,6 +6,13 @@ import * as K from './Constants.js';
 import * as pics from './Pictures.js';
 import * as Map from './Map.js';
 
+const styles = new StyleSheet.create({
+  textBox:{
+    flex: 1,
+    backgroundColor: lightblue,
+  }
+});
+
 class HomeScreen extends React.Component{
   render(){
     const config = {
@@ -19,6 +26,8 @@ class HomeScreen extends React.Component{
         <Text style={{position:"absolute", bottom: '60%', fontSize: 20, fontFamily: "Courier New"}}>Discover OHS</Text>
         <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
         <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
+        <Text style={{position:"absolute", textAlign: 'center', bottom: '10%', fontSize: 12, fontFamily: "Courier New"}}>Note: there is some lag when loading pictures</Text>
+        
         <Button
           title="Begin"
           onPress={() => {
@@ -81,8 +90,10 @@ class Exploration extends React.Component{
         {this.state.section == "upperCDEntrance" ? <ImageBackground source = {pics.upperCDEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionA" ? <ImageBackground source = {pics.upperCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-
-        <Text style={{position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
+        <View style='styles'>
+          <Text style={{position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe right or left to rotate</Text>
+        </View>
+        {Map.checkIfCanMove(this.state.section, this.state.id) ? <Text style={{position: 'absolute', bottom: '90%', fontSize: 12, fontFamily: "Courier New"}}>Swipe up to move forward</Text> : null}
         <Text style={{position: 'absolute', bottom: '5%', fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
         
       </GestureRecognizer>

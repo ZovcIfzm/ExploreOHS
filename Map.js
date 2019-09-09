@@ -94,6 +94,14 @@ export function rotation(section, id, direction){
   }
 }
 
+export function checkIfCanMove(section, id){
+  var result = map(section, id);
+  if (result[0] == section && result[1] == id) {
+    return false;
+  }
+  return true;
+}
+
 export function findSectionLength(sectionName){
   if (sectionName == "outsideMainEntrance") return pics.outsideMainEntranceLength;
   else if (sectionName == "frontDoors") return pics.frontDoorsLength;
