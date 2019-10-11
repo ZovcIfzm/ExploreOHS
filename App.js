@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, Button, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, ImageBackground } from 'react-native';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import * as K from './Constants.js';
 import * as pics from './Pictures.js';
 import * as Map from './Map.js';
 
-const styles = new StyleSheet.create({
+const styles = StyleSheet.create({
   textBox:{
     flex: 1,
-    backgroundColor: lightblue,
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: blue,
   }
 });
 
@@ -90,9 +92,7 @@ class Exploration extends React.Component{
         {this.state.section == "upperCDEntrance" ? <ImageBackground source = {pics.upperCDEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionA" ? <ImageBackground source = {pics.upperCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        <View style='styles'>
-          <Text style={{position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe right or left to rotate</Text>
-        </View>
+        <Text style={{alignItems: 'center',justifyContent: 'center', position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe right or left to rotate</Text>
         {Map.checkIfCanMove(this.state.section, this.state.id) ? <Text style={{position: 'absolute', bottom: '90%', fontSize: 12, fontFamily: "Courier New"}}>Swipe up to move forward</Text> : null}
         <Text style={{position: 'absolute', bottom: '5%', fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
         
