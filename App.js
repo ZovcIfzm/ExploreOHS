@@ -1,17 +1,30 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
+import {Card, Button} from 'react-native-elements'
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+
 import * as K from './Constants.js';
 import * as pics from './Pictures.js';
 import * as Map from './Map.js';
 
 const styles = StyleSheet.create({
-  textBox:{
-    flex: 1,
+  titleCard:{
+  },
+  titleBox:{
+    fontFamily: "Courier New",
+    fontSize: 24,
+    textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    //backgroundColor: blue,
+  },
+  instructionBox:{
+    fontSize: 12, 
+    fontFamily: "Courier New",
+    
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 
@@ -23,24 +36,37 @@ class HomeScreen extends React.Component{
   };
     return (
       <GestureRecognizer 
-        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-        onSwipeUp={this._onSwipeUp}>
-        <Text style={{position:"absolute", bottom: '60%', fontSize: 20, fontFamily: "Courier New"}}>Discover OHS</Text>
-        <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe to move: Up/forward, Right or left/rotate</Text>
-        <Text style={{fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
-        <Text style={{position:"absolute", textAlign: 'center', bottom: '10%', fontSize: 12, fontFamily: "Courier New"}}>Note: there is some lag when loading pictures</Text>
-        
-        <Button
-          title="Begin"
-          onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Exploration' })
-              ],
-            }))
-          }}
-        />
+        style={{ flex: 1, justifyContent: 'center'}}
+        onSwipeUp={this._onSwipeUp}
+      >
+        <Card styles={{ card: { backgroundColor: 'lightblue' }}} 
+          image={require('./pics/miscellaneous/OHSlogo.png')}>
+          <Text style={styles.titleBox}> DiscoverOHS </Text>
+        </Card>
+        <Card>
+          <Text style={styles.instructionBox}>Swipe up to move forward</Text>
+        </Card>
+        <Card>
+          <Text style={styles.instructionBox}>Swipe right/left to rotate</Text>
+        </Card>
+        <Card>
+          <Text style={styles.instructionBox}>Swipe down to return home</Text>
+        </Card>
+        <Card>
+          <Text style={{position:"absolute", textAlign: 'center', bottom: '10%', fontSize: 12, fontFamily: "Courier New"}}>Note: there is some lag when loading pictures</Text>
+          
+          <Button
+            title="Begin"
+            onPress={() => {
+              this.props.navigation.dispatch(StackActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: 'Exploration' })
+                ],
+              }))
+            }}
+          />
+        </Card>
       </GestureRecognizer>
     );
   }
@@ -73,7 +99,8 @@ class Exploration extends React.Component{
         onSwipeDown={this._onSwipeDown}
         onSwipeRight={this._onSwipeRight}
         onSwipeLeft={this._onSwipeLeft}
-        onSwipeUp={this._onSwipeUp}>
+        onSwipeUp={this._onSwipeUp}
+        >
         
         {this.state.section == "outsideMainEntrance" ? <ImageBackground source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "frontDoors" ? <ImageBackground source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
