@@ -8,30 +8,6 @@ import * as K from './Constants.js';
 import * as pics from './Pictures.js';
 import * as Map from './Map.js';
 
-const styles = StyleSheet.create({
-  titleCard:{
-    backgroundColor: 'lightblue',
-  },
-  infoCard:{
-    backgroundColor: 'lightblue',
-  },
-  titleBox:{
-    fontFamily: "Courier New",
-    fontSize: 24,
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  instructionBox:{
-    fontSize: 12, 
-    fontFamily: "Courier New",
-    
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
-
 class HomeScreen extends React.Component{
   render(){
     const config = {
@@ -56,9 +32,7 @@ class HomeScreen extends React.Component{
         <Card containerStyle={styles.infoCard}>
           <Text style={styles.instructionBox}>Swipe down to return home</Text>
         </Card>
-        <Card containerStyle={styles.infoCard}>
-          <Text style={{position:"absolute", textAlign: 'center', bottom: '10%', fontSize: 12, fontFamily: "Courier New"}}>Note: there is some lag when loading pictures</Text>
-          
+        <Card containerStyle={styles.infoCard}>      
           <Button
             title="Begin"
             onPress={() => {
@@ -70,6 +44,9 @@ class HomeScreen extends React.Component{
               }))
             }}
           />
+        </Card>
+        <Card containerStyle={styles.infoCard}>
+          <Text style={{textAlign: 'center', fontSize: 12, fontFamily: "TrebuchetMS-Bold"}}>Note: there is some lag when loading pictures</Text>
         </Card>
       </GestureRecognizer>
     );
@@ -123,9 +100,20 @@ class Exploration extends React.Component{
         {this.state.section == "upperCDEntrance" ? <ImageBackground source = {pics.upperCDEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionA" ? <ImageBackground source = {pics.upperCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        <Text style={{alignItems: 'center',justifyContent: 'center', position: 'absolute', bottom: '95%', fontSize: 12, fontFamily: "Courier New"}}>Swipe right or left to rotate</Text>
-        {Map.checkIfCanMove(this.state.section, this.state.id) ? <Text style={{position: 'absolute', bottom: '90%', fontSize: 12, fontFamily: "Courier New"}}>Swipe up to move forward</Text> : null}
-        <Text style={{position: 'absolute', bottom: '5%', fontSize: 12, fontFamily: "Courier New"}}>Swipe down to return home</Text>
+        
+        <Text 
+          style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '95%', borderRadius: 12, overflow: 'hidden'}}>
+            Swipe right or left to rotate
+        </Text>   
+        {Map.checkIfCanMove(this.state.section, this.state.id) ? 
+          <Text 
+            style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '90%', borderRadius: 7, overflow: 'hidden'}}>
+              Swipe up to move forward
+          </Text> : null}
+        <Text 
+          style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '2%', borderRadius: 4, overflow: 'hidden'}}>
+            Swipe down to return home
+        </Text>
         
       </GestureRecognizer>
     );
@@ -163,6 +151,37 @@ const AppNavigator = createStackNavigator({
 
 export default createAppContainer(AppNavigator);
 
+
+const styles = StyleSheet.create({
+  titleCard:{
+    backgroundColor: 'lightblue',
+    borderRadius: 20,
+  },
+  infoCard:{
+    backgroundColor: 'lightblue',
+    borderRadius: 24,
+  },
+  titleBox:{
+    fontFamily: "TrebuchetMS-Bold",
+    fontSize: 24,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  instructionBox:{
+    fontSize: 12, 
+    fontFamily: "TrebuchetMS-Bold",
+    
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  standardPadding:{
+    backgroundColor: 'lightblue', 
+    padding: 8, 
+    borderRadius: 7,
+  },
+});
 
 /*
 export default class FlexDimensionsBasics extends Component {

@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 18628,
-  "expoServerNgrokUrl": "https://hr-kwu.anonymous.discoverohs.exp.direct",
-  "packagerNgrokUrl": "https://packager.hr-kwu.anonymous.discoverohs.exp.direct",
-  "ngrokPid": 20308,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "expoServerPort": 19000
+  "expoServerPort": null
 }
