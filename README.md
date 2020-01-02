@@ -11,4 +11,4 @@ An open-source cross-platform app for IOS and Android built on React-Native allo
 <img src="https://github.com/ZovcIfzm/DiscoverOHS/blob/master/pics/readme/hallway.png" width="300" height="525">
 
 ## Next to the office
-<img src="https://github.com/ZovcIfzm/DiscoverOHS/blob/master/pics/readme/office.png" width="300" height="525"
+<img src="https://github.com/ZovcIfzm/DiscoverOHS/blob/master/pics/readme/office.png" width="300" height="525">
