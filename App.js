@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
+import { StatusBar, StyleSheet, View, Text, ImageBackground } from 'react-native';
 import {Card, Button} from 'react-native-elements'
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
@@ -10,6 +10,10 @@ import * as Map from './Map.js';
 
 const styles = StyleSheet.create({
   titleCard:{
+    backgroundColor: 'lightblue',
+  },
+  infoCard:{
+    backgroundColor: 'lightblue',
   },
   titleBox:{
     fontFamily: "Courier New",
@@ -36,23 +40,23 @@ class HomeScreen extends React.Component{
   };
     return (
       <GestureRecognizer 
-        style={{ flex: 1, justifyContent: 'center'}}
+        style={{ flex: 1, justifyContent: 'center', backgroundColor: 'skyblue'}}
         onSwipeUp={this._onSwipeUp}
       >
-        <Card styles={{ card: { backgroundColor: 'lightblue' }}} 
+        <Card containerStyle={styles.titleCard} 
           image={require('./pics/miscellaneous/OHSlogo.png')}>
           <Text style={styles.titleBox}> DiscoverOHS </Text>
         </Card>
-        <Card>
+        <Card containerStyle={styles.infoCard}>
           <Text style={styles.instructionBox}>Swipe up to move forward</Text>
         </Card>
-        <Card>
+        <Card containerStyle={styles.infoCard}>
           <Text style={styles.instructionBox}>Swipe right/left to rotate</Text>
         </Card>
-        <Card>
+        <Card containerStyle={styles.infoCard}>
           <Text style={styles.instructionBox}>Swipe down to return home</Text>
         </Card>
-        <Card>
+        <Card containerStyle={styles.infoCard}>
           <Text style={{position:"absolute", textAlign: 'center', bottom: '10%', fontSize: 12, fontFamily: "Courier New"}}>Note: there is some lag when loading pictures</Text>
           
           <Button
