@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar, StyleSheet, View, Text, ImageBackground } from 'react-native';
-import {Card, Button} from 'react-native-elements'
+import {Card, Button} from 'react-native-elements';
+import {LinearGradient} from 'expo-linear-gradient';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
@@ -15,40 +16,44 @@ class HomeScreen extends React.Component{
       directionalOffsetThreshold: 80
   };
     return (
-      <GestureRecognizer 
-        style={{ flex: 1, justifyContent: 'center', backgroundColor: 'skyblue'}}
-        onSwipeUp={this._onSwipeUp}
-      >
-        <Card containerStyle={styles.titleCard} 
-          image={require('./pics/miscellaneous/OHSlogo.png')}>
-          <Text style={styles.titleBox}> DiscoverOHS </Text>
-        </Card>
-        <Card containerStyle={styles.infoCard}>
-          <Text style={styles.instructionBox}>Swipe up to move forward</Text>
-        </Card>
-        <Card containerStyle={styles.infoCard}>
-          <Text style={styles.instructionBox}>Swipe right/left to rotate</Text>
-        </Card>
-        <Card containerStyle={styles.infoCard}>
-          <Text style={styles.instructionBox}>Swipe down to return home</Text>
-        </Card>
-        <Card containerStyle={styles.infoCard}>      
-          <Button
-            title="Begin"
-            onPress={() => {
-              this.props.navigation.dispatch(StackActions.reset({
-                index: 0,
-                actions: [
-                  NavigationActions.navigate({ routeName: 'Exploration' })
-                ],
-              }))
-            }}
-          />
-        </Card>
-        <Card containerStyle={styles.infoCard}>
-          <Text style={{textAlign: 'center', fontSize: 12, fontFamily: "TrebuchetMS-Bold"}}>Note: there is some lag when loading pictures</Text>
-        </Card>
-      </GestureRecognizer>
+      <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={{flex: 1, alignItems: 'center'}}>
+        <GestureRecognizer 
+          style={{ flex: 1, justifyContent: 'center'}}
+          onSwipeUp={this._onSwipeUp}
+        >
+          <Card containerStyle={styles.titleCard} 
+            image={require('./pics/miscellaneous/OHSlogo.png')}>
+            <Text style={styles.titleText}> DiscoverOHS </Text>
+          </Card>
+          <Card containerStyle={styles.infoCard}>
+            <Text style={styles.instructionText}>Swipe up to move forward</Text>
+          </Card>
+          <Card containerStyle={styles.infoCard}>
+            <Text style={styles.instructionText}>Swipe right/left to rotate</Text>
+          </Card>
+          <Card containerStyle={styles.infoCard}>
+            <Text style={styles.instructionText}>Swipe down to return home</Text>
+          </Card>
+          <Card containerStyle={styles.infoCard}>      
+            <Button
+              title="Begin"
+              onPress={() => {
+                this.props.navigation.dispatch(StackActions.reset({
+                  index: 0,
+                  actions: [
+                    NavigationActions.navigate({ routeName: 'Exploration' })
+                  ],
+                }))
+              }}
+            />
+          </Card>
+          <Card containerStyle={styles.infoCard}>
+            <Text style={{textAlign: 'center', fontSize: 12, fontFamily: "TrebuchetMS-Bold"}}>Note: there is some lag when loading pictures</Text>
+          </Card>
+        </GestureRecognizer>
+      </LinearGradient>
     );
   }
   _onSwipeUp = gestureState =>{
@@ -102,16 +107,16 @@ class Exploration extends React.Component{
         {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
         
         <Text 
-          style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '95%', borderRadius: 12, overflow: 'hidden'}}>
+          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '92%', borderRadius: 7, overflow: 'hidden'}}>
             Swipe right or left to rotate
         </Text>   
         {Map.checkIfCanMove(this.state.section, this.state.id) ? 
           <Text 
-            style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '90%', borderRadius: 7, overflow: 'hidden'}}>
+            style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '87%', borderRadius: 7, overflow: 'hidden'}}>
               Swipe up to move forward
           </Text> : null}
         <Text 
-          style={{backgroundColor: 'lightgrey', padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '2%', borderRadius: 4, overflow: 'hidden'}}>
+          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '2%', borderRadius: 7, overflow: 'hidden'}}>
             Swipe down to return home
         </Text>
         
@@ -147,6 +152,7 @@ const AppNavigator = createStackNavigator({
   },
 }, {
     initialRouteName: 'Home',
+    headerMode: 'none',
 });
 
 export default createAppContainer(AppNavigator);
@@ -154,30 +160,29 @@ export default createAppContainer(AppNavigator);
 
 const styles = StyleSheet.create({
   titleCard:{
-    backgroundColor: 'lightblue',
+    backgroundColor: '#80aaff',
     borderRadius: 20,
   },
   infoCard:{
-    backgroundColor: 'lightblue',
+    backgroundColor: '#80aaff',
     borderRadius: 24,
   },
-  titleBox:{
+  titleText:{
     fontFamily: "TrebuchetMS-Bold",
     fontSize: 24,
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  instructionBox:{
+  instructionText:{
     fontSize: 12, 
     fontFamily: "TrebuchetMS-Bold",
-    
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
   },
   standardPadding:{
-    backgroundColor: 'lightblue', 
+    backgroundColor: '#80aaff', 
     padding: 8, 
     borderRadius: 7,
   },
