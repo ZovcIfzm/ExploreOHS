@@ -8,6 +8,7 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import * as K from './Constants.js';
 import * as pics from './Pictures.js';
 import * as Map from './Map.js';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class HomeScreen extends React.Component{
   render(){
