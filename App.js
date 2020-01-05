@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { StatusBar, StyleSheet, View, Text, Image, Dimensions} from 'react-native';
 import {Card, Button} from 'react-native-elements';
 import {LinearGradient} from 'expo-linear-gradient';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
@@ -15,7 +15,7 @@ class HomeScreen extends React.Component{
     const config = {
       velocityThreshold: 0.3,
       directionalOffsetThreshold: 80
-  };
+    };
     return (
       <LinearGradient
           colors={['#4c669f', '#3b5998', '#192f6a']}
@@ -73,6 +73,7 @@ class Exploration extends React.Component{
     this.state = {
       section: "outsideMainEntrance",
       id: 0,
+      portrait: true,
     }
   }
   render(){
@@ -89,23 +90,23 @@ class Exploration extends React.Component{
         onSwipeUp={this._onSwipeUp}
         >
         
-        {this.state.section == "outsideMainEntrance" ? <ImageBackground source = {pics.outsideMainEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "frontDoors" ? <ImageBackground source = {pics.frontDoors[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "frontJunctionA" ? <ImageBackground source = {pics.frontJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "artsJunctionA" ? <ImageBackground source = {pics.artsJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "artsJunctionB" ? <ImageBackground source = {pics.artsJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "center" ? <ImageBackground source = {pics.center[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "cafeteria" ? <ImageBackground source = {pics.cafeteria[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "outsideMainEntrance" ? <Image source = {pics.outsideMainEntrance[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={styles.backgroundImage}/>: null}
         
-        {this.state.section == "lowerAB" ? <ImageBackground source = {pics.lowerAB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "midHall" ? <ImageBackground source = {pics.midHall[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDCenter" ? <ImageBackground source = {pics.lowerCDCenter[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDJunctionA" ? <ImageBackground source = {pics.lowerCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "lowerCDJunctionB" ? <ImageBackground source = {pics.lowerCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "CDStairs" ? <ImageBackground source = {pics.CDStairs[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "upperCDEntrance" ? <ImageBackground source = {pics.upperCDEntrance[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "upperCDJunctionA" ? <ImageBackground source = {pics.upperCDJunctionA[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
-        {this.state.section == "upperCDJunctionB" ? <ImageBackground source = {pics.upperCDJunctionB[this.state.id].image} style={{width: '100%', height: '100%'}}/>: null}
+        {this.state.section == "lowerAB" ? <Image source = {pics.lowerAB[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "midHall" ? <Image source = {pics.midHall[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "lowerCDCenter" ? <Image source = {pics.lowerCDCenter[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "lowerCDJunctionA" ? <Image source = {pics.lowerCDJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "lowerCDJunctionB" ? <Image source = {pics.lowerCDJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "CDStairs" ? <Image source = {pics.CDStairs[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "upperCDEntrance" ? <Image source = {pics.upperCDEntrance[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "upperCDJunctionA" ? <Image source = {pics.upperCDJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "upperCDJunctionB" ? <Image source = {pics.upperCDJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
         
         <Text 
           style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '92%', borderRadius: 7, overflow: 'hidden'}}>
@@ -187,7 +188,53 @@ const styles = StyleSheet.create({
     padding: 8, 
     borderRadius: 7,
   },
+  backgroundImage:{
+    width: '100%', 
+    height: '100%',
+    flex: 1,
+    resizeMode: 'cover'
+  }
 });
+
+
+/**
+ * Returns true if the screen is in portrait mode
+ */
+const isPortrait = () => {
+  const dim = Dimensions.get('screen');
+  return dim.height >= dim.width;
+};
+
+/**
+* Returns true of the screen is in landscape mode
+*/
+const isLandscape = () => {
+  const dim = Dimensions.get('screen');
+  return dim.width >= dim.height;
+};
+
+// Event Listener for orientation changes
+Dimensions.addEventListener('change', () => {
+  this.setState({
+    orientation: isPortrait(),
+  });
+});
+//Function returning style
+const rotateOrNot = function() {
+  if (isPortrait()){
+    return styles.backgroundImage;
+  }
+  else{
+    return {
+      width: '100%', 
+      height: '100%',
+      flex: 1,
+      resizeMode: 'cover',
+      transform: [{ rotate: '90deg' }]
+    }
+  }
+}
+
 
 /*
 export default class FlexDimensionsBasics extends Component {
