@@ -91,22 +91,22 @@ class Exploration extends React.Component{
         >
         
         {this.state.section == "outsideMainEntrance" ? <Image source = {pics.outsideMainEntrance[this.state.id].image} style={rotateOrNot()}/>: null}
-        {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "artsJunctionA" ? <Image source = {pics.artsJunctionA[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "artsJunctionB" ? <Image source = {pics.artsJunctionB[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "center" ? <Image source = {pics.center[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "cafeteria" ? <Image source = {pics.cafeteria[this.state.id].image} style={rotateOrNot()}/>: null}
         
-        {this.state.section == "lowerAB" ? <Image source = {pics.lowerAB[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "midHall" ? <Image source = {pics.midHall[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "lowerCDCenter" ? <Image source = {pics.lowerCDCenter[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "lowerCDJunctionA" ? <Image source = {pics.lowerCDJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "lowerCDJunctionB" ? <Image source = {pics.lowerCDJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "CDStairs" ? <Image source = {pics.CDStairs[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "upperCDEntrance" ? <Image source = {pics.upperCDEntrance[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "upperCDJunctionA" ? <Image source = {pics.upperCDJunctionA[this.state.id].image} style={styles.backgroundImage}/>: null}
-        {this.state.section == "upperCDJunctionB" ? <Image source = {pics.upperCDJunctionB[this.state.id].image} style={styles.backgroundImage}/>: null}
+        {this.state.section == "lowerAB" ? <Image source = {pics.lowerAB[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "midHall" ? <Image source = {pics.midHall[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "lowerCDCenter" ? <Image source = {pics.lowerCDCenter[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "lowerCDJunctionA" ? <Image source = {pics.lowerCDJunctionA[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "lowerCDJunctionB" ? <Image source = {pics.lowerCDJunctionB[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "CDStairs" ? <Image source = {pics.CDStairs[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "upperCDEntrance" ? <Image source = {pics.upperCDEntrance[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "upperCDJunctionA" ? <Image source = {pics.upperCDJunctionA[this.state.id].image} style={rotateOrNot()}/>: null}
+        {this.state.section == "upperCDJunctionB" ? <Image source = {pics.upperCDJunctionB[this.state.id].image} style={rotateOrNot()}/>: null}
         
         <Text 
           style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '92%', borderRadius: 7, overflow: 'hidden'}}>
