@@ -51,7 +51,7 @@ class HomeScreen extends React.Component{
             />
           </Card>
           <Card containerStyle={styles.infoCard}>
-            <Text style={{textAlign: 'center', fontSize: 12, fontFamily: "TrebuchetMS-Bold"}}>Note: there is some lag when loading pictures</Text>
+            <Text style={{textAlign: 'center', fontSize: 12, fontFamily: "Candara"}}>Note: there is some lag when loading pictures</Text>
           </Card>
         </GestureRecognizer>
       </LinearGradient>
@@ -89,7 +89,6 @@ class Exploration extends React.Component{
         onSwipeLeft={this._onSwipeLeft}
         onSwipeUp={this._onSwipeUp}
         >
-        
         {this.state.section == "outsideMainEntrance" ? <Image source = {pics.outsideMainEntrance[this.state.id].image} style={rotateOrNot()}/>: null}
         {this.state.section == "frontDoors" ? <Image source = {pics.frontDoors[this.state.id].image} style={rotateOrNot()}/>: null}
         {this.state.section == "frontJunctionA" ? <Image source = {pics.frontJunctionA[this.state.id].image} style={rotateOrNot()}/>: null}
@@ -109,16 +108,16 @@ class Exploration extends React.Component{
         {this.state.section == "upperCDJunctionB" ? <Image source = {pics.upperCDJunctionB[this.state.id].image} style={rotateOrNot()}/>: null}
         
         <Text 
-          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '92%', borderRadius: 7, overflow: 'hidden'}}>
+          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "Candara", alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: '92%', borderRadius: 7, overflow: 'hidden'}}>
             Swipe right or left to rotate
         </Text>   
         {Map.checkIfCanMove(this.state.section, this.state.id) ? 
           <Text 
-            style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '87%', borderRadius: 7, overflow: 'hidden'}}>
+            style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "Candara", position: 'absolute', bottom: '87%', borderRadius: 7, overflow: 'hidden'}}>
               Swipe up to move forward
           </Text> : null}
         <Text 
-          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "TrebuchetMS-Bold", position: 'absolute', bottom: '2%', borderRadius: 7, overflow: 'hidden'}}>
+          style={{backgroundColor: 'lightgrey', opacity: 0.3, padding: 6, fontSize: 12, fontFamily: "Candara", position: 'absolute', bottom: '2%', borderRadius: 7, overflow: 'hidden'}}>
             Swipe down to return home
         </Text>
         
@@ -170,7 +169,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   titleText:{
-    fontFamily: "TrebuchetMS-Bold",
+    fontFamily: "Candara",
     fontSize: 24,
     textAlign: 'center',
     justifyContent: 'center',
@@ -178,7 +177,7 @@ const styles = StyleSheet.create({
   },
   instructionText:{
     fontSize: 12, 
-    fontFamily: "TrebuchetMS-Bold",
+    fontFamily: "Candara",
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -234,7 +233,6 @@ const rotateOrNot = function() {
     }
   }
 }
-
 
 /*
 export default class FlexDimensionsBasics extends Component {
